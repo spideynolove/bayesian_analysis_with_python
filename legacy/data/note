@@ -1,0 +1,171 @@
+Statistics
+data analysis
+Manipulating data
+clean and tidy data
+
+Bayesian statistics | computational statistics
+p-value
+pick the proper can: (data + statistics)
+
+some statistical vocabulary
+some concepts
+
+data sources
+questions we want to answer and which methods we will use
+get the data
+experimental design
+
+Exploratory Data Analysis (EDA)
+    Descriptive statistics: 
+        how measures (or statistics)
+        summarize / characterize quantitative data 
+            using mean, mode, standard deviation, interquartile ranges
+
+    Data visualization
+        visually inspecting the data
+        histograms, scatter plots, ...
+
+EDA ~ understanding, interpreting, checking, summarizing, and communicating the results of Bayesian analysis
+
+Inferential statistics
+    data generalization | underlying mechanism to generate the data
+    future predictions 
+    rely on probabilistic models
+    add all of our understanding of the real world through models
+        Models are simplified descriptions of a given system
+        capture only the most relevant aspects of the system
+
+    prefer the simpler one data model
+
+    Bayesian modeling process using three steps:
+        build models using "data and some assumptions on how this data could have been generated"
+        conditioning the model: "use Bayes' theorem to add data to our models 
+            and derive the logical consequences of mixing the data and our assumptions"
+        testing: "check that model makes sense according to different criteria, 
+            including our data and our expertise on the subject"
+
+    "probabilities" are the correct mathematical tool to model the "uncertainty" in our data
+
+Probabilities and uncertainty | probability as a tool to quantify uncertainty
+    Eg: coins and coin tosses data, tend to be balanced, 0.5
+    using probabilities because we cannot be sure about the events
+    random vs subjective definition | world is deterministic or stochastic
+
+    probability | bias assumptions | probability distributions
+
+    use Bayes' theorem to invert the relationship "some probability distribution with unobserved parameters"
+        go from the data to the parameters
+
+    two types of random variable, continuous and discrete (using python int and float to represent)
+    successive values of a random variables ~ independent of each other
+    temporal series: trends vs seasonal  
+    Bayes' theorem: H with hypothesis and D with data
+    Parts: 
+        Prior: originally believed before new evidence is introduced 
+        Likelihood: chances of a particular situation to occur
+        Posterior: probability takes new information 
+        Evidence: probability of observing the data averaged over all the possible values the parameters can take
+
+relative values vs absolute ones
+
+Single parameter inference" inferring a single unknown parameter
+
+how biased is the coin problem: number of tosses vs total number of heads
+
+Getting the posterior: multiply likelihood and prior:
+
+most probable value : the peak of the distribution
+
+spread of the posterior : proportional to the uncertainty
+
+free to use more than one prior (or likelihood) for a given analysis if we are not sure about any special one.
+
+"priors" have a central role in Bayesian statistics
+
+modeling process is about questioning assumptions, and priors are just that
+    Different "assumptions" will lead to different "models"
+    using data and our domain knowledge of the problem to "compare models"
+
+result of a Bayesian analysis is the posterior distribution
+    report the mean (or mode or median)
+    location of the distribution 
+    some measure: standard deviation, dispersion 
+
+std work well with normal-like distributions, not skewed distributions
+    Highest posterior density (interval)
+        summarize the spread of a posterior distribution
+
+
+once we have a posterior, it is possible to use the posterior to generate future data (predictions)
+
+predictive checks consist of comparing the observed data and the predicted data 
+    to spot differences between these two sets
+    lead us to improve models or at least to understand their limitations
+
+
+probabilistic programming
+    describe our models and make inferences
+    ?? closed-form analytic posterior
+    numerical techniques
+    focus on model design, evaluation, and interpretation, 
+        and less on mathematical or computational details
+
+Inference engines
+    methods to compute the posterior
+        Non-Markovian: general faster than Markovian
+            Grid computing
+                brute-force approach
+
+            Quadratic approximation
+                Laplace method or normal approximation
+                First, find the mode of the posterior distribution
+            Variational methods
+                parallelizing run
+        Markovian (MCMC methods)
+            Metropolis-Hastings
+            Hamiltonian Monte Carlo/No U-Turn Sampler
+
+    mainly by using Markov Chain Monte Carlo (MCMC) methods
+        outperform the grid approximation
+        the larger the sample size the better the results
+        
+    Monte Carlo part 
+        random sampling to compute or simulate a given process
+        analytical combinatorial problem
+        used "re-sampling methods to solve statistical problems"
+
+    Markov Chain part.
+        "mathematical object" consisting of a sequence of states and a set of probabilities 
+            describing the transitions among those states
+
+    Metropolis-Hastings
+        sample chain or trace
+
+    Hamiltonian Monte Carlo/NUTS or Hybrid Monte Carlo
+        Gedanken experiment
+
+    Other MCMC methods
+        Replica Exchange
+        parallel tempering or Metropolis Coupled MCMC
+
+Multi-Parametric
+    not all the parameters we need in order to build a model ~ nuisance parameters ~ estimated instead of fixing
+    using some educated guess or rule of thumb
+
+    Bayes' theorem for a two-parameter model
+    bidimensional posterior | joint distribution | marginalize the posterior over
+
+    integrate/expressing - the posterior - over all the possible values/in terms
+
+    discrete variable: integral becomes a summation
+
+    marginal distribution of parameter ~ think of the average distribution
+
+    separate vector for each parameter in the model
+
+    beta-binomial model ~ many phenomena that can be nicely approximated using Gaussians
+        using a big enough sample size, that average will be distributed as a Gaussian
+            Uniform
+            HalfNormal
+            Normal
+            degrees of freedom
