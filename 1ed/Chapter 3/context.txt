@@ -1,0 +1,79 @@
+build "multi-parametric" models
+modeled using "more than one" parameter
+    some parameters depend on the values of other parameters
+Bayesian "hierarchical" models
+
+--------------------------------------------------------------------------
+"Nuisance" parameters and "marginalized" distributions
+    Sometimes add a (not interesting by themselves) parameter just to build the model
+        estimate the mean of Gaussian distribution
+    marginalized distributions
+    multi-parametric model
+    add Nuisance param to Bayesian statistics for "estimation purpose"
+    
+    assuming "scalars" (numbers) and not "vectors" (parameters)
+        scalars | vectors | matrices
+        
+    Eg: "bidimensional" posterior, "joint" distribution, marginalize the posterior over
+
+    "integrate" the posterior over all the possible values
+        For a discrete variable, the "integral" becomes a "summation"
+
+    "average" distribution over the entire distribution of the other parameters
+
+    "Marginalization"
+        get a unidimensional slice of a multidimensional posterior
+        simplify the mathematical and computational analysis
+
+--------------------------------------------------------------------------
+Gaussian
+    beta-binomial model, "Gaussian" or normal model
+    "conjugate" prior of the Gaussian mean
+    approximated phenomena
+        "big enough" sample size, average will be distributed as a Gaussian
+    "central limit theorem" | central statistical concept
+    Gaussians are easy to work with, nature, based on normality assumptions
+
+    kdeplot
+
+    set priors for both of not know "mean or the standard deviation": (assumptions that)
+        what is "uniform distribution with boundaries"   -> mean
+            (range of the data)
+            set the prior for the mean as a uniform
+        and "half-normal distribution"                  -> std
+
+        outcome = normal distribution with above {mean, std} | Kruschke-style diagrams
+            traceplot
+            marginalized distributions
+
+--------------------------------------------------------------------------
+Robust "outliers" estimation
+    two data points on the "tails" of the distribution ~ not same Gaussian "tail"
+    automate the outlier elimination process by using one of the many outlier rules
+        below 1.5 "times" the "interquartile" range from the "lower quartile"
+        above 1.5 times the interquartile range from the upper quartile
+
+        below or above two times the "standard deviation"
+
+    Student's t-distribution
+        dealing with outliers
+        mean, scale, degrees of freedom (m, std, v)
+            v ~ normality parameter
+                = 1 ~ heavier "tails" (Cauchy or Lorentz)
+                    more probable to find values away from the mean
+                    not as concentrated around the mean
+                        95% of the Cauchy distribution points are found between -12.7 and 12.7
+                        Another hand Gaussian: -1.96 and 1.96.
+                approaches infinity ~ Gaussian distribution
+
+
+--------------------------------------------------------------------------
+Comparing groups and measuring the effect size
+
+--------------------------------------------------------------------------
+Hierarchical models and shrinkage
+
+--------------------------------------------------------------------------
+Expected Output 
+    Detect outliers
+    where is tails distribution 
